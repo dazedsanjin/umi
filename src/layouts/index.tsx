@@ -1,13 +1,15 @@
 import { Link, Outlet } from 'umi';
+import { ConfigProvider } from 'antd';
+import zhCN from 'antd/es/locale/zh_CN';
+import 'antd/dist/antd.css';
 import styles from './index.less';
-import { setLocaleData } from 'monaco-editor-nls';
-import zh from 'monaco-editor-nls/locale/zh-hans.json';
 
 export default function Layout() {
-  setLocaleData(zh);
   return (
-    <div className={styles.wrapper}>
-      <Outlet />
-    </div>
+    <ConfigProvider locale={zhCN}>
+      <div className={styles.wrapper}>
+        <Outlet />
+      </div>
+    </ConfigProvider>
   );
 }
